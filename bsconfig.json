@@ -1,0 +1,14 @@
+{
+  "name": "bucklescript-to-do",
+  "reason": {
+    "react-jsx": 2
+  },
+  "bs-dependencies": [
+    "reason-react"
+  ],
+  "sources": "src",
+  "generate-merlin": true,
+  "package-specs": [
+    "es6"
+  ]
+}

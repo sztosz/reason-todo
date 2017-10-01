@@ -1,0 +1,37 @@
+{
+  "name": "reason-to-do",
+  "main": "index.js",
+  "scripts": {
+    "build:bsb": "bsb -make-world",
+    "build:js": "rollup -c",
+    "build:scss": "node-sass --include-path scss scss/todo.scss css/todo.css",
+    "build:css": "postcss --use autoprefixer -o releases/todo.css css/todo.css",
+    "build:code": "run-s build:bsb build:js",
+    "build:styles": "run-s build:scss build:css",
+    "build": "run-p build:code build:styles",
+    "watch:bsb": "bsb -w",
+    "watch:js": "rollup -c -w",
+    "watch:scss": "nodemon -e scss -x \"npm run build:scss\"",
+    "watch:css": "nodemon -e css -x \"npm run build:css\"",
+    "prewatch": "run-s build",
+    "watch": "run-p watch:bsb watch:js watch:scss watch:css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "reason-react": "0.2.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "bs-platform": "^1.7.5",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "postcss": "^6.0.8",
+    "postcss-cli": "^4.1.0",
+    "rollup": "^0.45.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-watch": "^4.3.1"
+  }
+}
